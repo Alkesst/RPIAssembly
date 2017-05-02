@@ -1,5 +1,7 @@
 @This code it's supposed to be a calculator in assembly code..
-@For this code you'll need the libberry.s
+@For this code you'll need the libberry.s and the library witingPi.s found at http://wiringpi.com
+.data
+.import "wiringPi.s"
 .text
 .global main
 main:		
