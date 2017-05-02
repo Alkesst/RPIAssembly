@@ -1,3 +1,5 @@
+@For this file you will need the wiringPi.s file, you can get this files using on your rpi this command: git clone https://UMADACTC@bitbucket.org/UMADACTC/libberry.git
+@There you'll find all you need to use this library with playNotes and setLeds.
 .data
 leds:	.word RLED1, RLED2, YLED1, YLED2, GLED1, GLED2	/* id de los pines de los leds */
 .include "wiringPiPins.s"  /* fichero con definiciones para el control de la placa */
