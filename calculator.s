@@ -15,4 +15,8 @@ while:
 			add r0, r0, #0b1
 			bl setLeds		
 			b while
-outwhile:	
+outwhile:		
+			mov r4, r0		@r4 -> First opperand
+			mov r0, #
+			mov r1, #
+			bl playNote
