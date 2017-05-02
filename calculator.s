@@ -3,6 +3,12 @@
 .text
 .global main
 main:		
+
+endmain:	bx lr
+
+
+opperand:	
+			push{lr}
 			bl initBerry
 			mov r2, #BUTTON1
 			mov r3, #BUTTON2
@@ -15,8 +21,11 @@ while:
 			add r0, r0, #0b1
 			bl setLeds		
 			b while
-outwhile:		
-			mov r4, r0		@r4 -> First opperand
+outwhile:	
+			push {r0}
 			mov r0, #
 			mov r1, #
 			bl playNote
+			pop {r0}
+			pop {lr}
+			bx lr
