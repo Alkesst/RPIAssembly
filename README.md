@@ -1,2 +1,2 @@
 # RPISimonAssembly
-We're trying to make a Simon game in ARM assembly code on a raspberry pi 2 model b
+We're making some programs on Assembly code for ARM architecture, we'll use the WiringPi library found at http://wiringpi.com, and a custom library called libberry. Libberry is found at this rep.
