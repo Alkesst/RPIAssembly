@@ -24,7 +24,7 @@ main:
 
 opperand:
 	push {r4-r6, lr}
-      mov r6, #0
+    	mov r6, #0
 	mov r4, #BUTTON1
 	mov r5, #BUTTON2
 while:
