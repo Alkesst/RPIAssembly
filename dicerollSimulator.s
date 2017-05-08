@@ -3,9 +3,9 @@
 .data
 ledssec:    .word   0b000001,0b000011,0b000111,0b001111,0b011111,0b111111, 0b011111, 0b001111, 0b000111, 0b000011, 0b000001
             .word
-notassec:   .word   3822, 3034, 2551, 2025, 1911, 1351, 1911, 2025, 2551, 3034, 3822
+notassec:   .word   3822, 3405, 2551, 1911, 1803, 1276, 1803, 1911, 2551, 3405, 3822
 tam:        .word   11
-str:        .string "s"
+str:        .string "%d\n"
 .include "wiringPiPins.s"
 .text
 .global main
@@ -13,20 +13,19 @@ main:
         push {lr}
         bl initBerry
         bl roll
+        ldr r0, =#2500
+        bl delay
+        bl initBerry
         pop {lr}
         bx lr
 
 
-
 random:
         push {lr}
-        bl millis
+        bl micros
 getrand:
-        cmp r0, #6
-        ble end
-        lsl r0, r0, #1
-        b getrand
-end:
+        and r2, r0, #0b111
+        sub r0, r2, #1
         pop {lr}
         bx lr
 
