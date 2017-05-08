@@ -42,11 +42,9 @@ while:
         bl delay
         b while
 end2:
+        bl soundleds
+        bl soundleds
         bl random
-        mov r5, r0
-        bl soundleds
-        bl soundleds
-        mov r0, r5
         bl setLeds
         pop {r4-r5, lr}
         bx lr
