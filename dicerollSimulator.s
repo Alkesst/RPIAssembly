@@ -4,11 +4,13 @@
 ledssec:    .word   0b000001,0b000011,0b000111,0b001111,0b011111,0b111111
 notassec:   .word   3822, 3034, 2551, 2025, 1607, 1351
 tam:        .word   6
+str:        .string "s"
 .include "wiringPiPins.s"
 .text
 .global main
 main:
         push {lr}
+        bl initBerry
         bl roll
         pop {lr}
         bx lr
@@ -21,6 +23,8 @@ random:
 getrand:
         cmp r0, #6
         ble end
+        ldr r0, =str
+        bl puts
         lsl r0, r0, #1
         b getrand
 end:
@@ -28,25 +32,25 @@ end:
         bx lr
 
 roll:
-        push {r4, lr}
+        push {r4-r5, lr}
+while:
         mov r4, #BUTTON1
         mov r0, r4
-while:
         bl digitalRead
         cmp r0, #0
         beq end2
         b while
 end2:
         bl random
-        push {r0}
+        mov r5, r0
         bl soundleds
-        pop {r0}
+        mov r0, r5
         bl setLeds
-        pop {r4, lr}
+        pop {r4-r5, lr}
         bx lr
 
 soundleds:
-        push {r4-r6, lr}
+        push {r4-r7, lr}
         ldr r1, =tam
         ldr r2, [r1]
         ldr r5, =ledssec
@@ -57,12 +61,12 @@ for:
         mov r0, r6
         bl setLeds
 note:
-        ldr r3, =notassec
-        ldr r0, [r3], #4
+        ldr r7, =notassec
+        ldr r0, [r7], #4
         mov r1, #250
         bl playNote
         sub r2, r2, #1
         b for
 outfor:
-        pop {r4-r6, lr}
+        pop {r4-r7, lr}
         bx lr
