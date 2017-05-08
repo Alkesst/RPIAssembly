@@ -21,23 +21,19 @@ getrand:
         b getrand
 end:
         pop {lr}
+        bx lr
 
 roll:
         push {lr}
         mov r4, #BUTTON1
+        mov r0, r4
 while:
-        mov r0, r4
         bl digitalRead
         cmp r0, #0
-        bne while
-        bl random
-        bl setLeds
-bucl:
-        mov r0, r4
-        bl digitalRead
-        cmp r0, #0
-        beq bucl
-        ldr r0, =7500
-        bl delayMicroseconds
-        bne while
+        beq end2
 end2:
+        bl random
+        push {r0}
+        bl soundleds
+        pop {r0}
+        bl setLeds
