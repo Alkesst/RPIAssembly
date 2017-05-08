@@ -26,6 +26,10 @@ random:
 getrand:
         and r2, r0, #0b111
         sub r0, r2, #1
+        cmp r0, #-1
+        bleq random
+        cmp r0, #0
+        bleq random
         pop {lr}
         bx lr
 
