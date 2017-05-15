@@ -12,10 +12,15 @@ str:        .string "%d\n"
 main:
         push {lr}
         bl initBerry
+buc:
         bl roll
         ldr r0, =#2500
         bl delay
         bl initBerry
+        mov r0, #BUTTON2
+        bl digitalRead
+        bne buc
+fin:        
         pop {lr}
         bx lr
 
