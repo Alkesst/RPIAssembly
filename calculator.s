@@ -10,7 +10,8 @@ main:
 cont:
 	bl opperand
 	mov r4, r0
-	bl initBerry
+	mov r0, #0
+	bl setLeds
 	bl opperand
 	mov r5, r0
 	add r0, r4, r5
