@@ -16,7 +16,8 @@ buc:
         bl roll
         ldr r0, =#2500
         bl delay
-        bl initBerry
+        mov r0, #0
+        bl setLeds
         mov r0, #BUTTON2
         bl digitalRead
         bne buc
