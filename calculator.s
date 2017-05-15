@@ -7,6 +7,7 @@
 main:
 	push {lr}
 	bl initBerry
+cont:
 	bl opperand
 	mov r4, r0
 	bl initBerry
@@ -18,6 +19,11 @@ main:
 	bl delay
 	mov r0, #0
 	bl setLeds
+	mov r0, #BUTTON2
+	bl digitalRead
+	cmp r0, #0
+	bne cont
+final:
 	pop {lr}
 	bx lr
 
