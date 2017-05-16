@@ -20,16 +20,16 @@ cont:
 	bl delay
 	mov r0, #0
 	bl setLeds
-repeat:
+rpt:
 	mov r0, #BUTTON2
 	bl digitalRead
 	cmp r0, #0
-	bne final
+	beq final
 	mov r0, #BUTTON1
 	bl digitalRead
 	cmp r0, #0
-	bne cont
-	b repeat
+	beq cont
+	b rpt
 final:
 	pop {lr}
 	bx lr
