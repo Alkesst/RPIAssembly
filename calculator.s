@@ -8,20 +8,7 @@ main:
 	push {lr}
 	bl initBerry
 cont:
-	ldr r0, =75
-	bl delay
-	bl opperand
-	mov r4, r0
-	mov r0, #0
-	bl setLeds
-	bl opperand
-	mov r5, r0
-	add r0, r4, r5
-	bl setLeds
-	ldr r0, =5000
-	bl delay
-	mov r0, #0
-	bl setLeds
+	bl sum
 rpt:
 	mov r0, #BUTTON2
 	bl digitalRead
@@ -70,4 +57,20 @@ outwhile:
 	pop {r0}
       	mov r0, r6
 	pop {r4-r6, lr}
+	bx lr
+sum:	
+	push {r4-r5, lr}
+	bl opperand
+	mov r4, r0
+	mov r0, #0
+	bl setLeds
+	bl opperand
+	mov r5, r0
+	add r0, r4, r5
+	bl setLeds
+	ldr r0, =5000
+	bl delay
+	mov r0, #0
+	bl setLeds
+	pop {r4-r5, lr}
 	bx lr
