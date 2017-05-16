@@ -8,6 +8,8 @@ main:
 	push {lr}
 	bl initBerry
 cont:
+	ldr r0, =75
+	bl delay
 	bl opperand
 	mov r4, r0
 	mov r0, #0
