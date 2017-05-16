@@ -20,10 +20,12 @@ cont:
 	bl delay
 	mov r0, #0
 	bl setLeds
-	ldr r0, =750
-	bl delay
 	mov r0, #BUTTON2
 	bl digitalRead
+	mov r4, r0
+	ldr r0, =750
+	bl delay
+	mov r0, r4
 	cmp r0, #0
 	bne cont
 final:
