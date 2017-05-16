@@ -53,7 +53,7 @@ bucl:
 	bl digitalRead
 	cmp r0, #0
 	beq bucl
-	ldr r0, =7500
+	ldr r0, =9000
 	bl delayMicroseconds
 	bne while
 outwhile:
