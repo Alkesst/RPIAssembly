@@ -58,6 +58,8 @@ outwhile:
       	mov r0, r6
 	pop {r4-r6, lr}
 	bx lr
+	
+	
 sum:	
 	push {r4-r5, lr}
 	bl opperand
