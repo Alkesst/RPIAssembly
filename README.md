@@ -7,5 +7,6 @@ You will need to compile first the libberry.o:
 ```
 Then, when you got you'r library compiled, you'll need to link with the "main" file:
 ```bash
-    gcc 
+    gcc –o pruLedsLibBerry pruLedsLibBerry.o libberry.o -lwiringPi
 ```
+
