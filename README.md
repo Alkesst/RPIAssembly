@@ -10,10 +10,11 @@ For compile and link with all the libraries you can use compileAndLink.sh. The s
 ./compileAndLink.sh dicerollSimulator
 ```
 Make run the program with high priority:
+
 ```bash
 chrt —rr 99./dicerollSimulator
-```  
-  
+```
+  
  
 
 
