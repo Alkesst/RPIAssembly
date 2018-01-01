@@ -1,5 +1,5 @@
 #!/bin/bash
-# made by @Melchor629
+# author: Melchor Garau Madrigal @Melchor629
 as=/home/alkesst/ARMCompiler/gcc-arm/bin/arm-none-eabi-as
 ld=/home/alkesst/ARMCompiler/gcc-arm/bin/arm-none-eabi-ld
 objcopy=/home/alkesst/ARMCompiler/gcc-arm/bin/arm-none-eabi-objcopy
