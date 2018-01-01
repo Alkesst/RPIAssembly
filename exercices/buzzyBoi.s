@@ -1,5 +1,5 @@
 .include "base.inc"
-@ Exercise 4
+@ Exercise 5
 .text
         ldr sp, =0x8000000
         ldr r4, =GPFBASE
