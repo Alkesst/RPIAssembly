@@ -1,4 +1,4 @@
-# RPISimonAssembly
+# RPIAssembly
 
 ### Requierements
 
