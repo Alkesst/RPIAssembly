@@ -18,4 +18,5 @@ rm a.out tmp.o
 if [[ -d "$2" ]]; then
     rm "$2/kernel.img"
     cp "${1:0:-2}.img" "$2/kernel.img"
+    umount "$2"
 fi
