@@ -88,9 +88,9 @@
  * subs pc, lr, #4 (si es error de datos, es un #8)
  * La siguiente macro es para escribir las rti en la direccion de la tabla
  */
-.macro  ADDISR vector, dirIsr
-    ldr r1, =(\dirIsr - \vector + 0xA7fffffB)
-    ROR r1, #2
+.macro ADDEXC  vector, dirRTI
+    ldr r1, =(\dirRTI-\vector+0xa7fffffb)
+    ror r1, #2
     str r1, [r0, #\vector]
 .endm
 /**

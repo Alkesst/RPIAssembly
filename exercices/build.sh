@@ -3,7 +3,6 @@
 as=/home/alkesst/ARMCompiler/gcc-arm/bin/arm-none-eabi-as
 ld=/home/alkesst/ARMCompiler/gcc-arm/bin/arm-none-eabi-ld
 objcopy=/home/alkesst/ARMCompiler/gcc-arm/bin/arm-none-eabi-objcopy
-
 if [[ ! -f "$1" ]]; then
     echo "El archivo \`$1' no existe"
     exit 1
@@ -17,5 +16,6 @@ $objcopy a.out -O binary "${1:0:-2}.img"
 rm a.out tmp.o
 
 if [[ -d "$2" ]]; then
+    rm "$2/kernel.img"
     cp "${1:0:-2}.img" "$2/kernel.img"
 fi
