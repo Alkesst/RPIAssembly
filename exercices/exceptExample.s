@@ -63,7 +63,7 @@ fiq_handler:
         mov r1, #0b00000000000000000000000000000100
         str r1, [r0, #GPEDS0]
         pop {r0, r1, r2}
-        bx lr
+        subs pc, lr, #4
 
 irq_handler:
         push {r0, r1, r2}
@@ -85,7 +85,7 @@ irq_handler:
         add r1, #0x400000
         str r1, [r0, #STC1]
         pop {r0, r1, r2}
-        bx lr
+        subs pc, lr, #4
 
 
  onoff: .word 0

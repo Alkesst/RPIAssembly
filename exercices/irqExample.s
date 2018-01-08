@@ -26,4 +26,4 @@ irq_handler:
         mov r1, #0b00000000000000000000001000000000
         str r1, [r0, #GPFSET0]
         pop {r0, r1}
-        bx lr
+        subs pc, lr, #4
