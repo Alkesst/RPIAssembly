@@ -16,7 +16,6 @@
         msr cpsr_c, r0
         mov sp, #0x08000000 @ init stack in svc mode
 
-        ldr r4, =GPFBASE
     @ BIT MASK: #0bxx999888777666555444333222111000
         mov r5, #0b00001000000000000000000000000000
         @ Configuring 4, 9, 10. 11. 17, 22 and 27 gpios as output
@@ -30,7 +29,7 @@
         str r2, [r0, #GPFSEL1]
         str r3, [r0, #GPFSEL2]
         ldr r0, =STBASE
-        @ C1 timer
+        @ C1 and C3 timer
         ldr r1, [r0, #STCLO]
         add r1, #0x100 @aprox 0.52 secs
         str r1, [r0, #STC1]
@@ -38,7 +37,7 @@
         ldr r0, =INTBASE
         mov r1, #0b10   @ allows c1 interruptions
         str r1, [r0, #INTENIRQ1]
-        mov r1, #0b10000011
+        mov r1, #0b10000011 @ fiq
         str r1, [r0, #INTFIQCON]  @ allow c3 interrupt through fiq
         mov r0, #0b00010011
         msr cpsr_c, r0
@@ -61,9 +60,7 @@ irq_handler:
         mov r1, #0b010
         str r1, [r0, #STCS]
         @program timer to interrupt in 0.52 secs
-        ldr r1, [r0, #STCLO]
         add r1, #0x80000
-        str r1, [r0, #STC1]
         pop {r0-r3, lr}
         subs pc, lr, #4
 
@@ -77,13 +74,13 @@ fiq_handler:
         ldr r3, =GPFBASE
     @ bit mask: #0b10987654321098765432109876543210
         mov r0, #0b00000000000000000000000000010000
-        strne r0, [r3, #GPFSET0]
-        streq r0, [r3, #GPCLR0]
-
+        strne r0, [r3, #GPFSET0] @ turns on buzzer
+        streq r0, [r3, #GPCLR0] @ turns off buzzer
+        @ #0b1000 clear c3 timer
         ldr r0, =STBASE
         mov r1, #0b1000
         str r1, [r0, #STCS]
-        @program timer to interrupt in 0.52 secs
+        @program timer to interrupt in 1136 microsecs (G Note)
         ldr r1, [r0, #STCLO]
         ldr r2, =1136
         add r1, r1, r2
@@ -92,6 +89,7 @@ fiq_handler:
         subs pc, lr, #4
 
 next_led:
+        @ get the next pos of an array
         ldr r0, =current_pos
         ldr r1, [r0]
         add r1, r1, #1
