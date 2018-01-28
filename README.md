@@ -24,7 +24,7 @@ Compile the project like this:
 ```bash
 ./build.sh *sourceFile*
 ```
-If a second argument is given, the script will automaticaly copy the generated image into the path given as second argument.
+If a second argument is given, the script will automaticaly copy the generated image into the path given as second argument. Also, the script unmounts automaticaly the given path. It's mainly work is to compile and copy into an sd card, that's why the script unmounts the path.
 
 Base.inc stores all the macros referring to memory positions in the raspberry, thus avoiding having to define them in all the headers.
 ### Mp3
