@@ -27,7 +27,18 @@ Compile the project like this:
 If a second argument is given, the script will automaticaly copy the generated image into the path given as second argument.
 
 Base.inc stores all the macros referring to memory positions in the raspberry, thus avoiding having to define them in all the headers.
+### Mp3
+A "mp3" made with raspberry. If the right button is pressed, it skips the current song, if the left button is pressed, the music is paused. The leds marks the % of song reproduced.
 
+The mp3 contains the next songs:
+- Atreyu - Start To Break
+- Coldplay - Clocks
+- Muse - Uprising
+- Mors Principium Est - Dead Winds Of Hope
+- Insomnium - Weather The Storm
+- Amon Amarth - First Kill
+- Opeth - Windowpane
+- Gojira - A Sight To Behold
 
 
 Special thanks to: [Melchor Garau][3] and [Atanasio Rubio][4]
