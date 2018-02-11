@@ -3,11 +3,6 @@
 .set CORCHEA, 301205 @ Corchea a 83bpm
 .set SEMICORCHEA, 150602 @ Semicorchea a 83bpm
 
-@ Windowpane es lentillo en verdad, pero repetitivo al principio
-@ Todas las notas desplazadas una escala hacia arriba para que se pueda oir en
-@ el zumbador
-@ https://www.jellynote.com/en/sheet-music-tabs/opeth/windowpane/504a0ea2d2235a3ff94a9da2
-
 .set DO3,  3822
 .set DO3S, 3608
 .set RE3,  3405

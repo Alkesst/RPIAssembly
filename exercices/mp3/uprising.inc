@@ -1,4 +1,4 @@
-@ http://latecladeescape.com/h/2015/08/frecuencia-de-las-notas-musicales#
+
 
 .set REDONDA,   2000000
 .set BLANCAP,   1500000

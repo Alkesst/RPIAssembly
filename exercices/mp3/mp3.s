@@ -272,10 +272,11 @@ muchFun:                       @ WHILE CURRENT TIME /= TIME TO WAIT DO
 .include "clocks.inc"
 .include "mpe.inc"
 .include "stb.inc"
+.include "vader.inc"
 
 
 song_index: .word 0
-songs_size: .word 8
+songs_size: .word 9
 indiceNota: .word 0
 estadoBuzzer: .word 0
 estadoLed: .word 0
@@ -290,6 +291,7 @@ leds:
     .word 0b00001000010000100000111000000000
 
 songs:
+    .word vNotas, vDurat, 70, 0
     .word ckNotas, ckDurat, 32, 0
     .word gjrNotas, gjrDurat, 103, 0
     .word wtsNotas, wtsDurat, 128, 0
